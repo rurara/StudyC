@@ -24,9 +24,24 @@
 
 size_t myStrlen(const char *);
 
-size_t myStrlen(const char *)
+size_t myStrlen(const char * text)
 {
-    return 0;
+    const char * test = text;
+    int endFlage = 0;
+    int countValue = 0;
+    
+    do {
+        if (!test[countValue]) {
+            endFlage =countValue;
+//            printf("end!! - %d\n", countValue);
+            break;
+        }
+//        printf("text[%d]: %c\n",countValue, test[countValue]);
+        
+        countValue ++;
+        
+    } while (endFlage <= 0);
+    return endFlage;
 }
 
 
@@ -34,9 +49,7 @@ int main(int argc, const char * argv[])
 {
     printf("Hello World\n");
     
-    printf("Strlen:%d\n", (int)myStrlen("Hello World"));
-    
-    
+    printf("Strlen:%d\n", (int)myStrlen("Hello World!!!"));
 
     return 0;
 }
