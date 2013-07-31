@@ -39,16 +39,22 @@
 #pragma mark strcat
 char	*myStrcat(char *, const char *);
 
-char	*myStrcat(char *a, const char *b){
+char	*myStrcat(char *a, const char *b)
+{
     char * aChar = a;
     const char *bChar = b;
+
+    
+    // 포인터 변수만 쓰기
     
     int endFlage = 0;
     int countValue = 0;
     int bCount = 0;
+    //3개 쓰지 말기
+    
     
     do {
-        if (!aChar[countValue]) {
+        if (!&aChar[countValue]) {
             
             aChar[countValue] = bChar[bCount];
             
