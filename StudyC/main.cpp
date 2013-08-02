@@ -10,6 +10,8 @@
 #include <string.h>
 
 /*
+ 7/31 strncmp - n 이 왜 쓰이는가 알아보기
+ 
  int	 memcmp(const void *, const void *, size_t);
         a, b 를 비교해서 a가 크면 1, 작으면 -1 같으면 0
  void	*memset(void *, int, size_t);
@@ -37,39 +39,30 @@
 */
 
 #pragma mark strcat
-char	*myStrcat(char *, const char *);
+char	*myStrcat(char *a, const char *b);
 
 char	*myStrcat(char *a, const char *b)
 {
-    char * aChar = a;
-    const char *bChar = b;
+    
+    const char *t;
+    for (;(*(char *)a);a++) {
+        *t = *a;
+        printf("t- [%c] //a - [%c] \n", *t, *a);
+    }
 
     
-    // 포인터 변수만 쓰기
-    
-    int endFlage = 0;
-    int countValue = 0;
-    int bCount = 0;
-    //3개 쓰지 말기
-    
-    
-    do {
-        if (!&aChar[countValue]) {
-            
-            aChar[countValue] = bChar[bCount];
-            
-            if (!bChar[bCount]) {
-//                printf("end!!");
-                break;
-            }
-            
-            bCount ++;
-        }
-        countValue ++;
-        
-    } while (endFlage <= 0);
+    for (; (*(char *)b); b++) {
+        *t = *b;
+        printf("t - [%c] ///b - [%c]\n",*t, *b);
+    }
 
-    return aChar;
+//    a= a- 8;
+    printf("t - [%s] \n", t);
+//    for (;(*(char *)a);a++) {
+//        printf("a - [%c] \n", *a);
+//    }
+//    char *re = a;
+    return a;
 }
 
 
@@ -78,22 +71,13 @@ size_t myStrlen(const char *);
 
 size_t myStrlen(const char * text)
 {
-    const char * test = text;
-    int endFlage = 0;
-    int countValue = 0;
+    int i = 0;
     
-    do {
-        if (!test[countValue]) {
-            endFlage =countValue;
-//            printf("end!! - %d\n", countValue);
-            break;
-        }
-//        printf("text[%d]: %c\n",countValue, test[countValue]);
-        
-        countValue ++;
-        
-    } while (endFlage <= 0);
-    return endFlage;
+    for (;(*(char *)text);text++) {
+        i++;
+    }
+    
+    return i;
 }
 
 #pragma mark main
